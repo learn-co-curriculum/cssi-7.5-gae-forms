@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>THE CHICAGO CSSI Trivia Quiz - Results</title>
+  </head>
+  <body>
+  	{% for  answer, msg in answer_msg_list%}
+	<p> {{msg}} Your answer was: {{answer}} </p>
+	{% endfor %}
+	<p>You got {{count}} answer(s) correct</p>
+	{% if count >= 2 %}
+	<p>Congrats! You're a CHITOWN genius! Seems like you were born and raised here!</p>
+	<img src="http://cdn.shopify.com/s/files/1/0237/1989/products/Chicago_flag_art_2491b2c8-66ab-416b-9f57-e07a0345cf9c_grande.png?v=1376514978">
+	{% endif %}
+  </body>
+</html>

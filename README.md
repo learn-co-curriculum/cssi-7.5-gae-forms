@@ -48,17 +48,25 @@ class MainHandler(webapp2.RequestHandler):
      self.response.out.write(template.render({'user_answer_1': self.request.get(answer1), 'user_answer_2': self.request.get(answer2)}))
 ```    		
 ###CHALLENGE
-* Finish the answer_count by displaying the correct # of answers on the results.html page. 
 * If the user gets all of the answers correct, display a fun image about your city.
 * Add a new form in main.html that gets the user’s name and displays it at the top of the results page.
 * Add additional other quiz questions by making more input elements on  the form. 
+*  Finish the answer_count by displaying the correct # of answers on the results.html page. You should have gone over an answer count in class, but if not, the syntax for the loop is below
+  
+> ```
+user_answers = [self.request.get('answer1'), self.request.get('answer2')]
+    	correct_answers = ['correct answer 1', 'correct answer 2']
+for i in range(len(correct_answers)):
+	    	if user_answers[i].lower() == correct_answers[i]:
+	    		answer_count += 1
+```
 
 ###STRETCH LAB 
 * All of the above. 
-* Use the zip function to zip the messages list with the answers list.
-  * In your handler use `list = zip(list1, list2) 
-  template.render({'list': list, ... }`
+* There is a way to iterate through 2 lists at a time - you have to use the zip function. Use it to zip the messages list with the answers list. This will allow you to access the first message in your messages list and the first answer in your answers list at the same time.
+  * In your handler use `quiz_list = zip(msg_list, answer_list) 
+  template.render({'combined_list': quiz_list }`
   * In your template use
-  `{% for item1, item2 in list %}`
+  `{% for msg, answer in combined_list %}`
   to iterate through both lists
 * Simplify the message logic to loop through the conditions and assign the appropriate message. 

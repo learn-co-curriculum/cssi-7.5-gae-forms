@@ -2,11 +2,11 @@
 ###STUDENT NOTES
 #### HTML Forms (review)
 
-The form element has two attributes. 
+The form element has two attributes: method and action.
 * The method attribute specifies the HTTP method (GET or POST) to be used when submitting the forms. 
   * When you use GET, the form data will be visible in the page's url
   * When you use POST, the submitted data is not visible in the page address
-* The action tells what script to run or which page to return to once the submit button is pressed. Since the handler in the python code takes care of the response, don't need to worry about the action attribute and leave it blank. 
+* The action attribute tells what script to run or which page to return to once the submit button is pressed. Since the handler in the python code takes care of the response, don't worry about the action attribute and leave it blank. 
 
 ```
 	<form method="post" action ="">
@@ -18,7 +18,7 @@ The form element has two attributes.
 
 
 ####Adding the  Post Method
-If you use a post method in your template, you need to add a way for your handler to handle post requests.
+If you use a post method in your template, you need to add a way for your handler to take care of those post requests.
 
 
 ```python
@@ -36,7 +36,7 @@ In the code above
 ####LINKING the HTML Form and the Handlers
 In order to grab the values from our form, we just need to take advantage of the self.request.get() method and grab our values for answer1 and answer2.
 
-In the example below, the complete.html template is rendered with two variables (user_answer_1 and user_answer_2) that contain the values stored within the form input elements named answer1 and answer 2 
+In the example below, the complete.html template is rendered with two variables (user_answer_1 and user_answer_2). The values of those variables are the form input elements "answer1" and "answer2" and can be accessed using `self.request.get()`
 
 ```python
 class MainHandler(webapp2.RequestHandler):
@@ -49,8 +49,8 @@ class MainHandler(webapp2.RequestHandler):
 ```    		
 ###CHALLENGE
 * Finish the answer_count by displaying the correct # of answers on the results.html page. 
-* If the user gets all of the answers correct, display a fun Chicago image
-* Add a new form in main.html that get’s the user’s name and displays it at the top of the results page.
+* If the user gets all of the answers correct, display a fun image about your city.
+* Add a new form in main.html that gets the user’s name and displays it at the top of the results page.
 * Add additional other quiz questions by making more input elements on  the form. 
 
 ###STRETCH LAB 

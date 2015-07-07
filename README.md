@@ -7,7 +7,8 @@ The form element has two attributes.
   * When you use GET, the form data will be visible in the page's url
   * When you use POST, the submitted data is not visible in the page address
 * The action tells what script to run or which page to return to once the submit button is pressed. Since the handler in the python code takes care of the response, don't need to worry about the action attribute and leave it blank. 
-```HTML
+
+```
 	<form method="post" action ="">
 		<p>Question 1: <input type="text" name="answer1"/></p>
 		<p>Question 2: <input type="text" name="answer2"/></p>

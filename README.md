@@ -1,12 +1,12 @@
 ##7.5 FORMS ON GOOGLE APP ENGINE
 ###STUDENT NOTES
-#### HTML Forms (review)
+#### HTML Forms (Review)
 
-The form element has two attributes: method and action.
-* The method attribute specifies the HTTP method (GET or POST) to be used when submitting the forms. 
+The form element has two attributes: _method_ and _action_.
+* The _method_ attribute specifies the HTTP method (GET or POST) to be used when submitting the forms. 
   * When you use GET, the form data will be visible in the page's url
   * When you use POST, the submitted data is not visible in the page address
-* The action attribute tells what script to run or which page to return to once the submit button is pressed. Since the handler in the python code takes care of the response, don't worry about the action attribute and leave it blank. 
+* The _action_ attribute tells which script to run or which page to return to once the submit button is pressed. Since the handler takes care of the response, don't worry about the action attribute and leave it blank. 
 
 ```
 	<form method="post" action ="">
@@ -18,7 +18,7 @@ The form element has two attributes: method and action.
 
 
 ####Adding the  Post Method
-If you use a post method in your template, you need to add a way for your handler to take care of those post requests.
+If you use a POSY method in your template, you need to add a way for your handler to take care of those post requests.
 
 
 ```python
@@ -26,17 +26,17 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
     	main_template = jinja_environment.get_template('templates/main.html')
     	self.response.out.write(main_template.render())
-    def post(self): ##here's the new post method in the MainHandler
+    def post(self): ##here's the new POST method in the MainHandler
     	self.response.out.write("You have submitted your quiz")
 ```
 In the code above
-* When the handler recieves a get request, it's response is to render a template
-* When the handler recieves a post request, it's response is to write a message. 
+* When the handler receives a GET request, it's response is to render a template
+* When the handler receives a POST request, it's response is to write a message. 
 
 #### Adding a Results Template
-Most likely, you'll want to add a new html page that gets rendered after the use submits their form. 
+Most likely, you'll want to add a new HTML page that gets rendered after the user submits their form. 
 
-Add your results.html file in the templates folder. Then in your MainHandler, be sure to make sure your template gets rendered after a post request.
+Add your results.html file in the templates folder. Then in your MainHandler, be sure to make sure your template gets rendered after a POST request.
 
 ```python
 class MainHandler(webapp2.RequestHandler):
@@ -68,7 +68,7 @@ class MainHandler(webapp2.RequestHandler):
 ```    		
 
 ####Using the Template Variables
-When your template variables get passed from the handler to the template, you can use them by surrounding them with mustaches {{}}
+When your template variables get passed from the handler to the template, you can use them by surrounding them with mustaches `{{}}`
 ```html
 <html>
   <head>
@@ -86,8 +86,8 @@ When your template variables get passed from the handler to the template, you ca
 ###CHALLENGE
 
 * Add a new form in main.html that gets the user’s name and displays it at the top of the results page.
-* Add additional other quiz questions by making more input elements on  the form. 
-*  Finish the answer_count by displaying the correct # of answers on the results.html page. You should have gone over an answer count in class, but if not, the syntax for the loop is below
+* Add additional quiz questions by making more input elements on  the form. 
+* Finish the answer_count by displaying the correct # of answers on the results.html page. You should have gone over an answer count in class, but if not, the syntax for the loop is below:
   
  ```python
  
@@ -107,9 +107,9 @@ for i in range(len(correct_answers)):
 
 ###STRETCH LAB 
 * All of the above. 
-* Make a message list, that includes a message to show to the user if they were correct or incorrect. 
+* Make a message list, that includes a message to show to the user indicating if they were correct or incorrect. 
 	* Start by initalizing a blank list: `msg_list = []` 	
-	* As you loop to check each correct answer,  append `'Correct!'` to the msg_list if it's right
+	* As you loop to check each correct answer,  append `'Correct!'` to the msg_list if it's correct
 	* Add an else statement to append  `'Sorry Pal'` to msg_list if the answer is incorrect.
 * There is a way to iterate through 2 lists at a time - you have to use the zip function. Use it to zip the messages list with the answers list. This will allow you to access the first message in your messages list and the first answer in your answers list at the same time. To display something like 
 

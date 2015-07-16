@@ -18,7 +18,7 @@ The form element has two attributes: _method_ and _action_.
 
 
 ####Adding the  Post Method
-If you use a POSY method in your template, you need to add a way for your handler to take care of those post requests.
+If you use a POST method in your template, you need to add a way for your handler to take care of those post requests.
 
 
 ```python

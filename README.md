@@ -44,9 +44,8 @@ class MainHandler(webapp2.RequestHandler):
     	main_template = jinja_environment.get_template('templates/main.html')
     	self.response.out.write(main_template.render())
     def post(self):
-	results_template = jinja_environment.get_template('templates/complete.html')
-	self.response.out.write(results_template.render())
-
+    	results_template = jinja_environment.get_template('templates/complete.html')
+    	self.response.out.write(results_template.render())
 ```
 
 ####LINKING the HTML Form and the Handlers
@@ -60,15 +59,15 @@ class MainHandler(webapp2.RequestHandler):
     	self.response.out.write(main_template.render())
     def post(self):
     	results_template = jinja_environment.get_template('templates/complete.html')
-    ##the variables that are sent to complete.html are user_answer_1 and user_answer_2
-    ##they contain the input values from the main.html form with names answer1 and answer2
+    	##the variables that are sent to complete.html are user_answer_1 and user_answer_2
+    	##they contain the input values from the main.html form with names answer1 and answer2
     	template_variables = {'user_answer_1': self.request.get('answer1'),
     			  		'user_answer_2': self.request.get('answer2')}
     	self.response.out.write(results_template.render(template_variables))
 ```    		
 
 ####Using the Template Variables
-When your template variables get passed from the handler to the template, you can use them by surrounding them with mustaches `{{}}`
+When your template variables get passed from the handler to the template, you can use them by surrounding them with mustaches `{{ }}`
 ```html
 <html>
   <head>

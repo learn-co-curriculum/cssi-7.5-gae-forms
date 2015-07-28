@@ -116,6 +116,7 @@ for i in range(len(correct_answers)):
 
   * In your handler use 
 ```python
+
 quiz_list = zip(msg_list, user_answers) 
   template.render({'combined_list': quiz_list }
   ```

@@ -128,3 +128,5 @@ quiz_list = zip(msg_list, user_answers)
 ```
   to iterate through both lists
  
+
+<a href='https://learn.co/lessons/cssi-7.5-gae-forms' data-visibility='hidden'>View this lesson on Learn.co</a>

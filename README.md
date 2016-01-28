@@ -129,4 +129,4 @@ quiz_list = zip(msg_list, user_answers)
   to iterate through both lists
  
 
-<a href='https://learn.co/lessons/cssi-7.5-gae-forms' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/cssi-7.5-gae-forms' title='7.5 FORMS ON GOOGLE APP ENGINE'>7.5 FORMS ON GOOGLE APP ENGINE</a> on Learn.co and start learning to code for free.</p>
